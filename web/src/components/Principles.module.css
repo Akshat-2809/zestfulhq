@@ -1,0 +1,11 @@
+.prin { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 56px; border-top: 1px solid var(--ink); }
+.pc { padding: 30px 28px 10px 0; display: flex; flex-direction: column; gap: 14px; }
+.pc + .pc { padding-left: 28px; border-left: 1px solid var(--line); }
+.n { font-family: var(--mono); font-size: 12px; color: var(--ink3); }
+.pc h3 { font-size: clamp(28px, 2.8vw, 40px); }
+.pc p { color: var(--ink2); }
+
+@media (max-width: 960px) {
+  .prin { grid-template-columns: minmax(0, 1fr); }
+  .pc + .pc { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+}

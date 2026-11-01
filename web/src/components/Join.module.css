@@ -1,0 +1,28 @@
+.inner { display: flex; flex-direction: column; gap: 40px; }
+.join { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+.card { border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 18px; }
+.dark { background: var(--dark); color: var(--onDark); }
+.dark :global(.lab) { color: var(--onDark3); }
+.dark p { color: var(--onDark2); }
+/* This card turns any of the mood colours, so its small text stays at full ink to stay readable on the darkest. */
+.mood :global(.lab), .mood .field label, .mood .fine, .mood .thanks { color: var(--ink); }
+.mood .field input::placeholder { color: var(--ink); opacity: .78; }
+.title { font-size: clamp(30px, 3vw, 42px); }
+.write { background: var(--cream); color: var(--ink); align-self: flex-start; }
+.write:hover { color: var(--ink); transform: translateY(-2px); }
+.form { display: flex; flex-direction: column; gap: 18px; position: relative; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); }
+.field input { min-height: 52px; border: 0; border-bottom: 1.5px solid var(--ink); border-radius: 0; background: transparent; font: 400 19px var(--sans); color: var(--ink); padding: 0 2px; }
+.field input::placeholder { color: var(--ink3); opacity: 1; }
+.field input:focus { outline: none; border-bottom-color: var(--zest); }
+.ferr { font-size: 14px; font-weight: 600; color: #8C3B2E; }
+.fine { font-size: 14px; color: var(--ink2); }
+.done { display: flex; flex-direction: column; gap: 18px; outline: none; }
+
+@media (max-width: 960px) {
+  .join { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .card { padding: 26px; }
+}

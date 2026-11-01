@@ -1,0 +1,41 @@
+.page { position: relative; overflow: hidden; padding-block: 140px 110px; }
+.grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+
+/* left column */
+.copy { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.h1 { font-size: clamp(56px, 8vw, 116px); line-height: .98; animation: fadein 1.2s var(--ease) both; }
+.rows { margin: 0; width: 100%; border-top: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; align-items: center; min-height: 60px; padding-block: 10px; border-bottom: 1px solid var(--line); }
+.row dd { margin: 0; font-family: var(--serif); font-size: 21px; overflow-wrap: anywhere; }
+.row a { text-decoration: none; }
+
+/* form card */
+.formCard { background: #EAF4F2; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 20px; }
+.formTitle { font-size: clamp(30px, 3vw, 42px); }
+.form { display: flex; flex-direction: column; gap: 18px; position: relative; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); }
+.field input, .field textarea { width: 100%; border: 0; border-bottom: 1.5px solid var(--ink); border-radius: 0; padding: 0 2px; font: 400 19px var(--sans); color: var(--ink); background: transparent; }
+.field input { min-height: 52px; }
+.field textarea { min-height: 150px; padding-block: 12px; line-height: 1.5; resize: vertical; }
+.field input::placeholder, .field textarea::placeholder { color: var(--ink3); opacity: 1; }
+.field input:focus, .field textarea:focus { outline: none; border-bottom-color: var(--zest); }
+.field [aria-invalid="true"] { border-bottom-color: #8C3B2E; }
+.ferr { font-size: 14px; font-weight: 600; color: #8C3B2E; }
+.actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 4px; }
+.fine { font-size: 14px; color: var(--ink2); }
+
+/* success */
+.done { display: flex; flex-direction: column; gap: 10px; padding-block: 32px; outline: none; }
+.doneTitle { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 34px; line-height: 1.15; }
+
+@keyframes fadein { from { opacity: .01; transform: translateY(18px); } }
+
+@media (max-width: 960px) {
+  .grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+}
+@media (max-width: 560px) {
+  .two { grid-template-columns: minmax(0, 1fr); }
+  .formCard { padding: 26px; }
+}

@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Zestful — Home</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#F7FAF8}
+a{color:#1E4A47}a:hover{color:#2F7F79}
+.z *{box-sizing:border-box}
+.z{--paper:#F7FAF8;--ink:#1E4A47;--ink2:#3F6763;--ink3:#557A76;--line:rgba(30,74,71,.14);--serif:'Newsreader',Georgia,serif;--display:'Poppins',system-ui,sans-serif;--zestd:#3E8F89;--sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.22,.8,.12,1);font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(20px,5vw,64px)}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:600;letter-spacing:-.035em;line-height:1.04;text-wrap:balance}
+h1 em,h2 em,h3 em,.fh em{font-style:normal;color:var(--zestd)}
+p{margin:0}
+em{font-style:italic}
+.lab{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.h2{font-size:clamp(40px,5.6vw,80px)}
+.lede{font-size:19px;color:var(--ink2);max-width:52ch;line-height:1.55}
+.ill{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.z a:focus-visible,.z button:focus-visible,.z input:focus-visible,.z textarea:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;font:600 16px var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .4s var(--ease),background .3s}
+.btn-ink{background:var(--ink);color:#F7FAF8}
+.btn-ink:hover{color:#F7FAF8;transform:translateY(-2px)}
+/* corners (no navbar) */
+.corner{position:fixed;z-index:50;top:0;left:0;right:0;pointer-events:none;transition:opacity .9s var(--ease)}
+.corner.hush{opacity:.12}
+.cin{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px clamp(20px,4vw,48px)}
+.cin a{pointer-events:auto}
+.wm{font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:-.01em;text-decoration:none;color:#5DB1AB;display:inline-flex;align-items:center;line-height:1;padding:9px 16px;border-radius:12px;border:2px solid transparent;background:linear-gradient(#FFFFFF,#FFFFFF) padding-box,linear-gradient(90deg,#A9D3CE,#F1E6C6) border-box}
+.wm:hover{color:#4AA39C}
+.cright{display:flex;align-items:center;gap:22px}
+.clink{font-size:15px;text-decoration:none;color:var(--ink2);min-height:44px;display:inline-flex;align-items:center}
+.cdot{width:8px;height:8px;border-radius:50%;display:inline-block;transition:background 1.6s var(--ease)}
+/* hero room */
+.room{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-block:120px 80px}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);transition:background-color 2.4s var(--ease);pointer-events:none}
+.b1{width:56vw;height:56vw;left:-14vw;top:-18vw;animation:drift1 22s ease-in-out infinite alternate}
+.b2{width:48vw;height:48vw;right:-12vw;top:8vh;animation:drift2 26s ease-in-out infinite alternate}
+.b3{width:44vw;height:44vw;left:24vw;bottom:-22vw;animation:drift3 30s ease-in-out infinite alternate}
+.rin{position:relative;width:100%;display:flex;flex-direction:column;gap:30px}
+.h1{font-size:clamp(46px,7vw,108px);line-height:.98;max-width:13ch}
+.h1 em{font-weight:600}
+.pad{position:relative;border-radius:28px;background:rgba(255,255,255,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 30px 60px -40px rgba(30,74,71,.35);padding:26px 30px 18px;display:flex;flex-direction:column;gap:12px;max-width:860px;transition:box-shadow .8s var(--ease)}
+.pad.on{box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 40px 80px -40px rgba(30,74,71,.45)}
+.pad label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.pad textarea{width:100%;min-height:150px;resize:vertical;border:0;background:transparent;font:300 clamp(22px,2.4vw,30px)/1.45 var(--serif);color:var(--ink);padding:0}
+.pad textarea::placeholder{color:#7FA19D;font-style:italic}
+.pad textarea:focus{outline:none}
+.padfoot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px}
+.moodline{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink2)}
+.moodline b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:21px;color:var(--ink)}
+.moodline .cdot{width:12px;height:12px}
+.tries{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.try{min-height:44px;padding:0 16px;border-radius:999px;border:0;background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px var(--line);font:500 14.5px var(--sans);color:var(--ink2);cursor:pointer;transition:background .3s,transform .4s var(--ease)}
+.try:hover{background:#FFFFFF;transform:translateY(-2px)}
+.scrollcue{display:flex;align-items:center;gap:10px;color:var(--ink3);font-size:14px}
+.scrollcue i{display:block;width:1px;height:36px;background:var(--ink3);transform-origin:top;animation:cue 2.4s var(--ease) infinite}
+/* poll */
+.sec{padding-block:140px}
+.poll{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:center}
+.bars{display:flex;flex-direction:column;gap:18px}
+.prow{display:grid;grid-template-columns:150px minmax(0,1fr) 52px;gap:16px;align-items:center}
+.prow span{font-size:16px}
+.track{height:40px;border-radius:999px;background:rgba(30,74,71,.06);overflow:hidden}
+.fill{height:100%;border-radius:999px;width:0;transition:width 1.6s var(--ease)}
+.poll.go .fill{width:var(--w)}
+.prow b{font-family:var(--display);font-size:24px;font-weight:600;text-align:right}
+/* isn't */
+.isnt{background:#1E4A47;color:#F3F8F6;padding-block:140px}
+.isnt .lab{color:#A9CBC6}
+.words{display:flex;flex-direction:column;gap:2px;margin-top:40px}
+.word{position:relative;display:inline-block;align-self:flex-start;font-family:var(--display);font-weight:600;font-size:clamp(40px,6.4vw,96px);line-height:1.08;letter-spacing:-.02em;color:#F3F8F6;transition:color 1s var(--ease)}
+.word::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height:4px;border-radius:4px;background:var(--zest);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease)}
+.isnt.go .word{color:#6E9894}
+.isnt.go .word::after{transform:scaleX(1)}
+.isnt.go .word:nth-child(2),.isnt.go .word:nth-child(2)::after{transition-delay:.12s}
+.isnt.go .word:nth-child(3),.isnt.go .word:nth-child(3)::after{transition-delay:.24s}
+.isnt.go .word:nth-child(4),.isnt.go .word:nth-child(4)::after{transition-delay:.36s}
+.isnt.go .word:nth-child(5),.isnt.go .word:nth-child(5)::after{transition-delay:.48s}
+.isnt.go .word:nth-child(6),.isnt.go .word:nth-child(6)::after{transition-delay:.6s}
+.left{margin-top:56px;font-family:var(--serif);font-style:italic;font-size:clamp(28px,3.4vw,46px);line-height:1.2;max-width:24ch;opacity:0;transform:translateY(20px);transition:opacity 1.2s var(--ease) .9s,transform 1.2s var(--ease) .9s}
+.isnt.go .left{opacity:1;transform:none}
+/* return */
+.ret{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:start;margin-top:48px}
+.shelf{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.entry{display:grid;grid-template-columns:14px 92px minmax(0,1fr);gap:16px;align-items:center;min-height:68px;padding:12px 6px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;cursor:pointer;font:inherit;color:var(--ink);transition:background .3s,padding .4s var(--ease)}
+.entry:hover{background:rgba(255,255,255,.6)}
+.entry.on{background:#FFFFFF;padding-left:14px}
+.entry .cdot{width:12px;height:12px}
+.entry .d{font-family:var(--mono);font-size:12px;color:var(--ink3)}
+.entry .t{font-family:var(--serif);font-size:21px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.reader{position:sticky;top:100px;border-radius:24px;padding:34px;min-height:380px;display:flex;flex-direction:column;gap:18px;transition:background-color 1.2s var(--ease)}
+.reader .body{font-family:var(--serif);font-size:clamp(22px,2.2vw,28px);line-height:1.45;font-weight:300}
+.swapA{animation:swapA .7s var(--ease) both}
+.swapB{animation:swapB .7s var(--ease) both}
+/* principles */
+.prin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:56px;border-top:1px solid var(--ink)}
+.pc{padding:30px 28px 10px 0;display:flex;flex-direction:column;gap:14px}
+.pc + .pc{padding-left:28px;border-left:1px solid var(--line)}
+.pc .n{font-family:var(--mono);font-size:12px;color:var(--ink3)}
+.pc h3{font-size:clamp(28px,2.8vw,40px)}
+.pc p{color:var(--ink2)}
+/* story */
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.clip{position:relative;background:#F6F0DC;padding:30px 30px 34px;transform:rotate(-1.5deg);box-shadow:0 24px 40px -28px rgba(30,74,71,.5);font-family:var(--serif);color:#2C5652;clip-path:polygon(0 2%,6% 0,14% 2%,22% 0,31% 1.5%,40% 0,52% 2%,63% 0,74% 1.5%,85% 0,94% 2%,100% 0,100% 98%,93% 100%,82% 98%,70% 100%,58% 98%,46% 100%,35% 98%,24% 100%,12% 98%,0 100%)}
+.clip .mast{display:flex;justify-content:space-between;border-bottom:2px solid #2C5652;padding-bottom:8px;margin-bottom:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+.cols{column-count:2;column-gap:22px;font-size:15px;line-height:1.5;text-align:justify;color:#4C6E6A}
+.circled{position:relative;display:inline-block;color:#1E4A47;font-weight:600}
+.circled svg{position:absolute;inset:-40% -14%;width:128%;height:180%;overflow:visible;pointer-events:none}
+.circled path{fill:none;stroke:var(--zest);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;transition:stroke-dashoffset 1.6s var(--ease) .3s}
+.story.go .circled path{stroke-dashoffset:0}
+.dict{margin-top:-18px;margin-left:24%;position:relative;background:#FFFFFF;border-radius:6px;padding:20px 22px;box-shadow:0 20px 40px -26px rgba(30,74,71,.5);transform:rotate(1.5deg) translateY(30px);opacity:0;transition:transform 1.2s var(--ease) .8s,opacity 1.2s var(--ease) .8s;max-width:360px}
+.story.go .dict{transform:rotate(1.5deg);opacity:1}
+.dict b{font-family:var(--serif);font-size:28px;font-weight:500}
+.dict .ph{font-family:var(--mono);font-size:12px;color:var(--ink3)}
+.dict p{font-family:var(--serif);font-size:18px;margin-top:6px}
+.q{font-family:var(--serif);font-size:clamp(30px,3.4vw,48px);line-height:1.15;font-style:italic}
+/* join */
+.join{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.card{border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.field input{min-height:52px;border:0;border-bottom:1.5px solid var(--ink);background:transparent;font:400 19px var(--sans);color:var(--ink);padding:0 2px}
+.field input:focus{outline:none;border-bottom-color:var(--zest)}
+/* footer: closing journal */
+.foot{position:relative;background:#1E4A47;color:#F3F8F6;padding-block:120px 0;overflow:hidden}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center}
+.book{position:relative;width:min(420px,100%);aspect-ratio:1.45;margin-inline:auto;perspective:1600px}
+.pg{position:absolute;top:0;bottom:0;width:50%;background:#F7FAF8;border-radius:4px}
+.pg.l{left:0;border-radius:6px 0 0 6px;box-shadow:inset -14px 0 20px -14px rgba(0,0,0,.35)}
+.pg.r{right:0;border-radius:0 6px 6px 0;box-shadow:inset 14px 0 20px -14px rgba(0,0,0,.35);padding:16% 12%;display:flex;flex-direction:column;gap:9px}
+.pg.r i{display:block;height:2px;border-radius:2px;background:rgba(30,74,71,.18)}
+.pg.r i:nth-child(1){width:90%}.pg.r i:nth-child(2){width:72%}.pg.r i:nth-child(3){width:84%}.pg.r i:nth-child(4){width:60%}
+.cover{position:absolute;top:-3%;bottom:-3%;right:-2%;width:52%;border-radius:4px 10px 10px 4px;background:var(--zest);transform-origin:left center;transform:rotateY(-178deg);transition:transform 1.8s var(--ease) .2s;display:flex;align-items:center;justify-content:center;backface-visibility:visible;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.foot.go .cover{transform:rotateY(0)}
+.cover span{font-family:var(--display);font-weight:600;font-size:28px;color:#FFFFFF;opacity:0;transition:opacity .6s 1.4s}
+.foot.go .cover span{opacity:1}
+.ribbon{position:absolute;left:52%;top:-3%;width:12px;height:118%;background:#F1E6C6;clip-path:polygon(0 0,100% 0,100% 100%,50% 92%,0 100%);transform-origin:top;transition:transform 1.2s var(--ease)}
+.foot.go .ribbon{transform:rotate(-4deg)}
+.fh{font-family:var(--display);font-weight:600;font-size:clamp(46px,6vw,92px);line-height:1;letter-spacing:-.02em}
+.flinks{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 26px}
+.flinks a{color:#F3F8F6;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;font-size:16px;border-bottom:1px solid transparent;transition:border-color .3s}
+.flinks a:hover{color:#FFFFFF;border-bottom-color:var(--zest)}
+.legal{margin-top:110px;border-top:1px solid rgba(243,248,246,.16);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:22px 30px;font-family:var(--mono);font-size:11.5px;color:#A9CBC6}
+.legal a{color:#A9CBC6;text-decoration:none}
+.legal a:hover{color:#FFFFFF}
+@supports (animation-timeline: view()){.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 5% entry 55%}}
+@keyframes rv{from{opacity:0;transform:translateY(40px)}}
+@keyframes drift1{to{transform:translate(8vw,6vh) scale(1.08)}}
+@keyframes drift2{to{transform:translate(-6vw,10vh) scale(.94)}}
+@keyframes drift3{to{transform:translate(-10vw,-6vh) scale(1.1)}}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@keyframes swapA{from{opacity:0;transform:translateY(10px)}}
+@keyframes swapB{from{opacity:0;transform:translateY(10px)}}
+@keyframes fadein{from{opacity:0;transform:translateY(18px)}}
+.in1{animation:fadein 1.2s var(--ease) both}.in2{animation:fadein 1.2s var(--ease) .15s both}.in3{animation:fadein 1.2s var(--ease) .3s both}
+@media (max-width:960px){
+.poll,.ret,.story,.join,.fgrid{grid-template-columns:minmax(0,1fr)}
+.prin{grid-template-columns:minmax(0,1fr)}
+.pc + .pc{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+.reader{position:relative;top:0}
+.sec,.isnt{padding-block:96px}
+.dict{margin-left:10%}
+.clink.hide{display:none}
+}
+@media (max-width:560px){
+.prow{grid-template-columns:110px minmax(0,1fr) 44px;gap:10px}
+.cols{column-count:1}
+.card{padding:26px}
+.pad{padding:20px 20px 14px}
+}
+@media (prefers-reduced-motion:reduce){.z *,.z *::before,.z *::after{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div class="z" style="--zest: {{accent}}">
+
+<!-- CORNERS: no navbar, they hush while you write -->
+<div class="corner {{hushCls}}">
+<div class="cin">
+<a class="wm" href="#write" aria-label="Zestful home">Zestful</a>
+<div class="cright">
+<a class="clink hide" href="#isnt">What it isn't</a>
+<a class="clink hide" href="#story">The story</a>
+<a class="clink" href="#join" style="color: var(--ink); font-weight: 600">Build with us →</a>
+</div>
+</div>
+</div>
+
+<!-- THE ROOM -->
+<section class="room" id="write">
+<div class="blob b1" style="background-color: {{c1}}" aria-hidden="true"></div>
+<div class="blob b2" style="background-color: {{c2}}" aria-hidden="true"></div>
+<div class="blob b3" style="background-color: {{c3}}" aria-hidden="true"></div>
+<div class="wrap rin">
+<span class="lab in1">Zestful · Helping people understand themselves better</span>
+<h1 class="h1 in2">A private space to <em>process your thoughts.</em></h1>
+<div class="pad in3 {{padCls}}">
+<label for="pad">Write anything. The room will follow.</label>
+<textarea id="pad" data-pad="1" placeholder="What's on your mind right now?" onInput="{{onType}}" onFocus="{{onFocus}}" onBlur="{{onBlur}}"></textarea>
+<div class="padfoot">
+<div class="moodline" aria-live="polite"><span class="cdot" style="background: {{dotColor}}"></span><span>The room feels</span><b>{{moodName}}</b></div>
+<span class="ill">Illustration · a sketch of the idea</span>
+</div>
+</div>
+<div class="tries">
+<span class="lab" style="margin-right: 6px">Try a line</span>
+<sc-for list="{{tries}}" as="t" hint-placeholder-count="4">
+<button type="button" class="try" onClick="{{t.pick}}">{{t.label}}</button>
+</sc-for>
+</div>
+<p class="lede" style="max-width: 60ch">Write it out, and the environment quietly adapts to what you're expressing, helping you reflect along the way.</p>
+<div class="scrollcue" aria-hidden="true"><i></i>Read on</div>
+</div>
+</section>
+
+<!-- POLL -->
+<section class="sec">
+<div class="wrap poll {{pollCls}}" data-poll="1">
+<div class="rv" style="display: flex; flex-direction: column; gap: 18px">
+<span class="lab">When your mind feels messy</span>
+<h2 class="h2">Where do you <em>actually</em> go to write things out?</h2>
+<p class="lede">We asked. Most people reach for whatever is nearest: a notes app, a WhatsApp draft. Zestful is being built for that moment.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<div class="bars">
+<sc-for list="{{poll}}" as="p" hint-placeholder-count="4">
+<div class="prow"><span>{{p.label}}</span><div class="track"><div class="fill" style="--w: {{p.w}}; background: {{p.color}}"></div></div><b>{{p.v}}</b></div>
+</sc-for>
+</div>
+<span class="ill">LinkedIn poll by the founder · May 2026 · 10 votes</span>
+</div>
+</div>
+</section>
+
+<!-- WHAT IT ISN'T -->
+<section class="isnt {{isntCls}}" id="isnt" data-isnt="1">
+<div class="wrap">
+<span class="lab">What Zestful isn't</span>
+<div class="words">
+<span class="word">Advice.</span>
+<span class="word">Feeds.</span>
+<span class="word">Social pressure.</span>
+<span class="word">Instant solutions.</span>
+<span class="word">Productivity hacks.</span>
+<span class="word">Social optimisation.</span>
+</div>
+<p class="left">Designed to be calm and non-intrusive. Just you, your words, and a place to put them.</p>
+</div>
+</section>
+
+<!-- RETURN -->
+<section class="sec" id="return">
+<div class="wrap">
+<div class="rv" style="display: flex; flex-direction: column; gap: 18px">
+<span class="lab">Over time</span>
+<h2 class="h2">Write, reflect, and <em>return</em> to your thoughts.</h2>
+</div>
+<div class="ret">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="shelf" role="group" aria-label="Past entries">
+<sc-for list="{{entries}}" as="e" hint-placeholder-count="5">
+<button type="button" class="entry {{e.cls}}" aria-pressed="{{e.pressed}}" onClick="{{e.pick}}"><span class="cdot" style="background: {{e.dot}}"></span><span class="d">{{e.date}}</span><span class="t">{{e.title}}</span></button>
+</sc-for>
+</div>
+<span class="ill">Illustration · sample entries</span>
+</div>
+<div class="reader" style="background-color: {{readerBg}}">
+<div class="{{readerCls}}" style="display: flex; flex-direction: column; gap: 16px">
+<span class="lab">{{readerDate}} · {{readerMood}}</span>
+<h3 style="font-size: clamp(30px, 3vw, 42px)">{{readerTitle}}</h3>
+<p class="body">{{readerBody}}</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="sec" style="padding-top: 40px">
+<div class="wrap">
+<div class="rv" style="display: flex; flex-direction: column; gap: 18px">
+<span class="lab">How it's being built</span>
+<h2 class="h2">Slowly, and <em>on purpose.</em></h2>
+</div>
+<div class="prin rv">
+<div class="pc"><span class="n">01</span><h3>AI as a tool, not a substitute.</h3><p>Built with a strong belief in using AI thoughtfully and responsibly.</p></div>
+<div class="pc"><span class="n">02</span><h3>A question about inner life.</h3><p>Not a platform for instant solutions, productivity hacks or social optimisation.</p></div>
+<div class="pc"><span class="n">03</span><h3>Built through lived iteration.</h3><p>Not from templates or borrowed best practices. Some categories don't reveal themselves upfront.</p></div>
+</div>
+</div>
+</section>
+
+<!-- STORY -->
+<section class="sec" id="story" style="background: #EAF4F2">
+<div class="wrap story {{storyCls}}" data-story="1">
+<div>
+<div class="clip" aria-hidden="true">
+<div class="mast"><span>The Morning Paper</span><span>Page 7</span></div>
+<div class="cols">A short column on habits of the mind, and on taking a moment each day for <span class="circled">introspection<svg viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M100 4 C 40 2, 6 18, 8 32 C 10 50, 70 58, 120 56 C 176 54, 196 40, 192 24 C 188 8, 140 2, 80 6"></path></svg></span>, written in plain words, to the side of the day's bigger news, in a font small enough to miss.</div>
+</div>
+<div class="dict">
+<b>in·tro·spec·tion</b> <span class="ph">noun</span>
+<p>The examination of one's own thoughts and feelings.</p>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<span class="lab">Where it began</span>
+<p class="lede">At 13, Muskaan found a word in the newspaper, ran to the dictionary, and then asked her sister:</p>
+<p class="q">“Why is there no tool for introspection?”</p>
+<p class="lede">She ended the conversation with: “Someone should build something like that.” That memory became the first seed of Zestful. At first she called it Smile, the English meaning of her name. That one was already taken.</p>
+<div style="display: flex; flex-direction: column; gap: 4px; margin-top: 8px"><span style="font-family: var(--serif); font-style: italic; font-size: 26px">Muskaan Sharma</span><span class="lab">Founder · Gurugram · [Founder photo]</span></div>
+</div>
+</div>
+</section>
+
+<!-- JOIN -->
+<section class="sec" id="join">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 18px">
+<span class="lab">Come closer</span>
+<h2 class="h2">Build it, or <em>be first</em> to write in it.</h2>
+</div>
+<div class="join">
+<div class="card" style="background: #1E4A47; color: #F3F8F6">
+<span class="lab" style="color: #A9CBC6">Looking for a co-founder</span>
+<h3 style="font-size: clamp(30px, 3vw, 42px)">Someone who has built from 0→1 before.</h3>
+<p style="color: #CFE3E0">An ex-founder, an early-stage builder, or someone who has genuinely owned and shipped something from the ground up. Not a predefined role: someone who wants to take a bet on the problem, build, experiment, talk to users, and figure out product and distribution together.</p>
+<a class="btn" href="mailto:hello@zestfulhq.com?subject=Co-founder" style="background: #F1E6C6; color: #1E4A47; align-self: flex-start">Write to Muskaan</a>
+</div>
+<div class="card" style="background-color: {{c1}}; transition: background-color 2.4s">
+<span class="lab">Early access</span>
+<sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+<h3 style="font-size: clamp(30px, 3vw, 42px)">Leave your email. We'll write when there's a page for you.</h3>
+<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 18px">
+<div class="field"><label for="ea-email">Email</label><input id="ea-email" type="email" autocomplete="email" placeholder="you@email.com"></div>
+<button type="submit" class="btn btn-ink" style="align-self: flex-start">Keep me a page</button>
+</form>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<h3 style="font-size: clamp(30px, 3vw, 42px)">Thank you. Your page is waiting.</h3>
+<p style="color: var(--ink2)">We'll be in touch, quietly.</p>
+</sc-if>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER: the journal closes -->
+<footer class="foot {{footCls}}" data-foot="1">
+<div class="wrap fgrid">
+<div style="display: flex; flex-direction: column; gap: 26px">
+<span class="lab" style="color: #A9CBC6">The end of the page</span>
+<p class="fh">Close the book. <em style="color: {{accent}}">Come back</em> when you're ready.</p>
+<ul class="flinks">
+<li><a href="#write">Write</a></li>
+<li><a href="#isnt">What it isn't</a></li>
+<li><a href="#return">Return</a></li>
+<li><a href="#story">The story</a></li>
+<li><a href="#join">Build with us</a></li>
+<li><a href="https://www.linkedin.com/company/zestfulhq/">LinkedIn</a></li>
+</ul>
+<span style="font-family: var(--mono); font-size: 13px; color: #CFE3E0">hello@zestfulhq.com · Gurugram, India</span>
+</div>
+<div class="book" aria-hidden="true">
+<div class="pg l"></div>
+<div class="pg r"><i></i><i></i><i></i><i></i></div>
+<div class="cover"><span>Zestful</span></div>
+<div class="ribbon"></div>
+</div>
+</div>
+<div class="wrap legal"><span>© 2026 Zestful · Founded 2024 · Gurugram, India</span><span><a href="#write">Privacy</a> · <a href="#write">Terms</a> · <a href="#write">Back to the page ↑</a></span></div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#5DB1AB","options":["#5DB1AB","#4AA39C","#7CC1BB","#3E8F89"]},"$preview":{"width":1440,"height":7600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mood: 'still', focus: false, len: 0, entry: 0, eflip: 0, poll: false, isnt: false, story: false, foot: false, sent: false };
+    this.moods = {
+      still: { name: 'still', c: ['#E3F1EF', '#F6F0DC', '#EAF4F2'], dot: '#8FC8C2', reader: '#EEF6F4' },
+      calm: { name: 'calm', c: ['#CBE6E2', '#DDEFEC', '#BFE0DB'], dot: '#5DB1AB', reader: '#DDEFEC' },
+      warm: { name: 'warm', c: ['#F3E5BC', '#F8EFD2', '#EEE0B2'], dot: '#D2BC78', reader: '#F8F0D8' },
+      heavy: { name: 'heavy', c: ['#AFCFCB', '#C4DCD9', '#A6C7C3'], dot: '#3E8F89', reader: '#D3E5E2' },
+      restless: { name: 'restless', c: ['#BFE3DE', '#F1E2B0', '#A9D6CF'], dot: '#2F7F79', reader: '#E8F1E3' }
+    };
+    this.lex = {
+      calm: ['calm', 'quiet', 'peaceful', 'peace', 'rest', 'slow', 'breathe', 'okay', 'still', 'settled', 'gentle', 'soft', 'clear'],
+      warm: ['grateful', 'happy', 'excited', 'love', 'proud', 'glad', 'hope', 'hopeful', 'thankful', 'joy', 'finally', 'smile', 'good'],
+      heavy: ['sad', 'tired', 'lonely', 'heavy', 'lost', 'cry', 'crying', 'hurt', 'miss', 'empty', 'low', 'exhausted', 'alone'],
+      restless: ['anxious', 'worried', 'nervous', 'overthinking', 'stress', 'stressed', 'scared', 'afraid', 'racing', 'restless', 'deadline', 'angry', 'frustrated', 'messy']
+    };
+    this.tryLines = [
+      { label: 'Overthinking tomorrow', text: 'I keep overthinking tomorrow. My head feels messy and I can’t slow it down.' },
+      { label: 'A quiet win', text: 'Something small went right today and I feel quietly proud. Grateful, actually.' },
+      { label: 'A heavy week', text: 'This week felt heavy. I’m tired, and I miss feeling like myself.' },
+      { label: 'Just breathing', text: 'Sat by the window for a while. Slow morning, calm and still.' }
+    ];
+    this.entries = [
+      { date: '12 Mar', mood: 'restless', title: 'Before the big conversation', body: 'I keep rehearsing what I’ll say, and every version sounds wrong. Writing it here first so it stops circling.' },
+      { date: '28 Apr', mood: 'heavy', title: 'A slow, low Sunday', body: 'Didn’t do much today. Felt far away from everything. Putting it down so I don’t carry it into Monday.' },
+      { date: '19 May', mood: 'calm', title: 'Rain on the balcony', body: 'Sat outside while it rained. Nothing to fix, nothing to decide. I want to remember that this is possible.' },
+      { date: '07 Jul', mood: 'warm', title: 'It finally worked', body: 'Months of trying and today it finally clicked. Reading March back, I can see how far this came.' },
+      { date: '22 Sep', mood: 'still', title: 'Reading old pages', body: 'Went back through the year. Some of these thoughts I don’t recognise anymore. Some I still do.' }
+    ];
+  }
+  componentDidMount() {
+    var self = this;
+    this.onScroll = function () { if (self.raf) return; self.raf = requestAnimationFrame(function () { self.raf = null; self.measure(); }); };
+    document.addEventListener('scroll', this.onScroll, true);
+    window.addEventListener('resize', this.onScroll);
+    this.measure();
+    this.t0 = setTimeout(function () { self.measure(); }, 400);
+  }
+  componentWillUnmount() {
+    clearTimeout(this.t0);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    document.removeEventListener('scroll', this.onScroll, true);
+    window.removeEventListener('resize', this.onScroll);
+  }
+  measure() {
+    var vh = window.innerHeight || 800;
+    var upd = {};
+    var keys = [['poll', '[data-poll]'], ['isnt', '[data-isnt]'], ['story', '[data-story]'], ['foot', '[data-foot]']];
+    for (var i = 0; i < keys.length; i++) {
+      var el = document.querySelector(keys[i][1]);
+      if (el && !this.state[keys[i][0]] && el.getBoundingClientRect().top < vh * 0.7) upd[keys[i][0]] = true;
+    }
+    if (Object.keys(upd).length) this.setState(upd);
+  }
+  read(text) {
+    var words = (text || '').toLowerCase().replace(/[’']/g, '').split(/[^a-z]+/);
+    var score = { calm: 0, warm: 0, heavy: 0, restless: 0 };
+    var last = null;
+    for (var i = 0; i < words.length; i++) {
+      for (var m in this.lex) { if (this.lex[m].indexOf(words[i]) >= 0) { score[m] += 1; last = m; } }
+    }
+    var best = 'still', top = 0;
+    for (var k in score) { if (score[k] > top || (score[k] === top && top > 0 && k === last)) { best = k; top = score[k]; } }
+    return best;
+  }
+  renderVals() {
+    var self = this;
+    var s = this.state;
+    var M = this.moods[s.mood];
+    var E = this.entries[s.entry];
+    var EM = this.moods[E.mood];
+    var pollColors = ['#1E4A47', '#3E8F89', '#8FC8C2', '#E6D59F'];
+    var pollData = [['Notes app', 40], ['WhatsApp drafts', 30], ['Paper / journal', 20], ['ChatGPT / AI tools', 10]];
+    return {
+      accent: this.props.accent ?? '#5DB1AB',
+      c1: M.c[0], c2: M.c[1], c3: M.c[2], dotColor: M.dot,
+      moodName: M.name,
+      hushCls: s.focus && s.len > 0 ? 'hush' : '',
+      padCls: s.focus ? 'on' : '',
+      onType: function (e) { var v = e && e.target ? e.target.value : ''; var m = self.read(v); if (m !== self.state.mood || v.length !== self.state.len) self.setState({ mood: m, len: v.length }); },
+      onFocus: function () { self.setState({ focus: true }); },
+      onBlur: function () { self.setState({ focus: false }); },
+      tries: this.tryLines.map(function (t) { return { label: t.label, pick: function () { var el = document.querySelector('[data-pad]'); if (el) { el.value = t.text; } self.setState({ mood: self.read(t.text), len: t.text.length }); } }; }),
+      poll: pollData.map(function (p, i) { return { label: p[0], v: p[1] + '%', w: p[1] * 2.2 + '%', color: i === 0 ? (self.props.accent ?? '#5DB1AB') : pollColors[i] }; }),
+      pollCls: s.poll ? 'go' : '',
+      isntCls: s.isnt ? 'go' : '',
+      entries: this.entries.map(function (e, i) { return { date: e.date, title: e.title, dot: self.moods[e.mood].dot, cls: i === s.entry ? 'on' : '', pressed: i === s.entry ? 'true' : 'false', pick: function () { if (self.state.entry !== i) self.setState(function (st) { return { entry: i, eflip: st.eflip + 1 }; }); } }; }),
+      readerBg: EM.reader, readerDate: E.date, readerMood: EM.name, readerTitle: E.title, readerBody: E.body,
+      readerCls: s.eflip % 2 === 0 ? 'swapA' : 'swapB',
+      storyCls: s.story ? 'go' : '',
+      footCls: s.foot ? 'go' : '',
+      sent: s.sent, notSent: !s.sent,
+      submit: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
