@@ -80,7 +80,7 @@ const SECTIONS: LegalSection[] = [
         <p>Your email address, your name if you include it, your message and anything else you choose to send.</p>
         <h3>When you visit</h3>
         <p>
-          Our hosting provider keeps standard request logs (IP address, time, page, browser) for security and reliability. We use
+          The servers that run this website keep standard request logs (IP address, time, page, browser) for security and reliability. We use
           no advertising or analytics cookies, and our fonts are served from our own domain.
         </p>
         <h3>Please leave out</h3>
@@ -109,7 +109,7 @@ const SECTIONS: LegalSection[] = [
       <>
         <ul>
           <li><b>To read and reply to your emails.</b> Basis: your consent, and data you gave us for that purpose.</li>
-          <li><b>To keep the website safe and running,</b> through our host&apos;s request logs. Basis: the reasonable security practices the law requires.</li>
+          <li><b>To keep the website safe and running,</b> through the website&apos;s request logs. Basis: the reasonable security practices the law requires.</li>
           <li><b>To meet legal duties</b> and answer lawful requests.</li>
         </ul>
         <p>We make no automated decisions about you that have legal or similarly significant effects.</p>
@@ -123,14 +123,13 @@ const SECTIONS: LegalSection[] = [
       <>
         <p>Our team, and only where needed:</p>
         <ul>
-          <li><b>Vercel Inc.,</b> which hosts the website and keeps its request logs.</li>
-          <li><b>Our email provider,</b> which stores the emails you send us and our replies.</li>
+          <li><b>Service providers</b> that run this website and our email, only to provide those services.</li>
           <li><b>Professional advisers,</b> such as lawyers and auditors, under a duty of confidentiality.</li>
           <li><b>Authorities and courts,</b> where the law requires it or to protect our legal rights.</li>
           <li><b>A buyer or successor,</b> if we are part of a merger or sale, with this policy still protecting your data.</li>
         </ul>
         <p>
-          The first two may store or process data outside India. The DPDP law allows that except to countries the Central
+          They may store or process data outside India. The DPDP law allows that except to countries the Central
           Government restricts, and we won&apos;t transfer data to a restricted country.
         </p>
       </>
