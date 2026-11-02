@@ -7,7 +7,7 @@ import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of use — Zestful",
-  description: "The rules for using the Zestful website and asking for early access.",
+  description: "The rules for using the Zestful website.",
   alternates: { canonical: "/terms" },
 };
 
@@ -16,7 +16,7 @@ const mail = <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>;
 const SUMMARY: LegalSummaryRow[] = [
   { subject: "This website", answer: "It shows what we’re building. Zestful isn’t available to use yet, and plans may change." },
   { subject: "Not care", answer: "Zestful isn’t therapy, medical advice or a crisis service." },
-  { subject: "Early access", answer: "It puts you on our list. It isn’t a contract or a promise of a launch date." },
+  { subject: "The forms", answer: "They don’t send or store what you type. To reach us, email us." },
   { subject: "The examples", answer: "The mood pad and journal entries are illustrations, not a working product or real people’s writing." },
   { subject: "If we disagree", answer: "Indian law applies, and the courts at Gurugram decide." },
 ];
@@ -60,8 +60,7 @@ const SECTIONS: LegalSection[] = [
     title: "Who may use the Website",
     body: (
       <p>
-        Anyone may read it. To ask for early access or send us a message, you must be at least 18 and able to contract under the
-        Indian Contract Act, 1872.
+        Anyone may read it. To write to us, you must be at least 18 and able to contract under the Indian Contract Act, 1872.
       </p>
     ),
   },
@@ -77,17 +76,18 @@ const SECTIONS: LegalSection[] = [
     ),
   },
   {
-    id: "early-access",
-    title: "Early access",
+    id: "forms",
+    title: "The forms",
     body: (
       <>
-        <p>When you use our forms:</p>
-        <ul>
-          <li>what you tell us must be true, and the email address must be your own;</li>
-          <li>you join a list. That doesn&apos;t create a contract or guarantee access, a launch date or a reply by any particular time;</li>
-          <li>we decide who we write to first, and when; and</li>
-          <li>you can leave at any time by writing to {mail}.</li>
-        </ul>
+        <p>
+          The early-access and contact forms on the Website check what you type in your browser and show a thank-you. They
+          don&apos;t send or store anything, so filling one in doesn&apos;t put you on a list or send us a message.
+        </p>
+        <p>
+          To reach us or ask about early access, email {mail}. Writing to us doesn&apos;t create a contract or guarantee access, a
+          launch date or a reply by any particular time.
+        </p>
       </>
     ),
   },
@@ -110,7 +110,7 @@ const SECTIONS: LegalSection[] = [
         <ul>
           <li>use the Website for anything unlawful, fraudulent or harmful;</li>
           <li>pretend to be someone else, or sign anyone up without their permission;</li>
-          <li>send spam, or false, automated or bulk entries through our forms;</li>
+          <li>send us spam, or false, automated or bulk messages;</li>
           <li>scrape or copy the Website by automated means, except search engines that follow our robots.txt;</li>
           <li>probe it for weaknesses, break its security, or introduce harmful code; or</li>
           <li>copy, modify or reverse engineer it, except as the law allows.</li>
@@ -170,8 +170,8 @@ const SECTIONS: LegalSection[] = [
     title: "Suspending access",
     body: (
       <p>
-        We may suspend or restrict access to the Website, or remove entries from our list, at any time, including to protect its
-        security or if we reasonably believe you have broken these terms.
+        We may suspend or restrict access to the Website at any time, including to protect its security or if we reasonably believe
+        you have broken these terms.
       </p>
     ),
   },
@@ -213,7 +213,7 @@ export default function TermsPage() {
     <LegalDoc
       title={<>Terms of <em>use</em></>}
       note="The rules, in plain words."
-      intro="We're at an early stage, so these rules are short. They cover this website and asking for early access on it."
+      intro="We're at an early stage, so these rules are short. They cover this website."
       summary={SUMMARY}
       sections={SECTIONS}
     />

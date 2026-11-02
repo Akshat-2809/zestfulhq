@@ -7,7 +7,7 @@ import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy policy — Zestful",
-  description: "What Zestful asks you for, why, who sees it, and the rights you have under Indian law. What you type on the page stays in your browser.",
+  description: "The forms on this website don't send or store anything. What Zestful does with the emails you send us, and the rights you have under Indian law.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -15,10 +15,10 @@ const mail = <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>;
 
 const SUMMARY: LegalSummaryRow[] = [
   { subject: "What you write", answer: "What you type into the writing pad on our homepage stays in your browser. It is never sent to us or saved, and it’s gone when you leave the page." },
-  { subject: "What we ask", answer: "Your email if you want early access. Your name, email and message if you write to us." },
-  { subject: "Why we ask", answer: "So we can write to you about Zestful and reply to you. That’s it." },
+  { subject: "The forms", answer: "The early-access and contact forms don’t send or store what you type. Nothing you enter in them reaches us." },
+  { subject: "Reaching us", answer: <>Email {mail}. We use what you send only to reply to you.</> },
   { subject: "What we never do", answer: "Sell your data, use it for advertising, or follow you around the web." },
-  { subject: "Changing your mind", answer: <>Write to {mail} and we’ll take you off the list.</> },
+  { subject: "Changing your mind", answer: <>Write to {mail} and we’ll delete your emails with us.</> },
 ];
 
 const SECTIONS: LegalSection[] = [
@@ -32,7 +32,7 @@ const SECTIONS: LegalSection[] = [
           thoughts, and we are at an early stage.
         </p>
         <p>
-          This policy covers this website: visiting it, asking for early access, and writing to us. When it comes to the data
+          This policy covers this website: visiting it, and emailing us. When it comes to the data
           described here, we decide why and how it is used, so under Indian law we are the <b>Data Fiduciary</b> and you are the{" "}
           <b>Data Principal</b>. We follow the Information Technology Act, 2000 and the SPDI Rules, 2011, and we are aligning with
           the Digital Personal Data Protection Act, 2023 and its Rules of 2025 (the &ldquo;DPDP law&rdquo;) as they come into force.
@@ -58,19 +58,26 @@ const SECTIONS: LegalSection[] = [
     ),
   },
   {
+    id: "forms",
+    title: "The forms on this website",
+    body: (
+      <>
+        <p>
+          The early-access form and the contact form check what you type in your own browser, then show a thank-you.{" "}
+          <b>They don&apos;t send what you type to us or to anyone else, and they don&apos;t save it.</b> It disappears when you
+          leave or refresh the page.
+        </p>
+        <p>To reach us, or to ask about early access, email {mail}.</p>
+      </>
+    ),
+  },
+  {
     id: "what-we-collect",
     title: "What we collect",
     body: (
       <>
-        <h3>When you ask for early access</h3>
-        <p>Your email address.</p>
-        <h3>When you write to us</h3>
-        <p>Your name, your email and your message, plus anything else you choose to include.</p>
-        <h3>When you submit a form</h3>
-        <ul>
-          <li><b>Your IP address,</b> stored only as a salted one-way hash, to stop spam and abuse.</li>
-          <li><b>Your browser&apos;s user-agent,</b> the short description of the browser it sends with the form.</li>
-        </ul>
+        <h3>When you email us</h3>
+        <p>Your email address, your name if you include it, your message and anything else you choose to send.</p>
         <h3>When you visit</h3>
         <p>
           Our hosting provider keeps standard request logs (IP address, time, page, browser) for security and reliability. We use
@@ -79,7 +86,7 @@ const SECTIONS: LegalSection[] = [
         <h3>Please leave out</h3>
         <p>
           Passwords, bank or card details, and health information, including anything about your mental health. We don&apos;t need
-          them on this website, and a contact form isn&apos;t the right place for them.
+          them, and email isn&apos;t the right place for them.
         </p>
       </>
     ),
@@ -89,8 +96,9 @@ const SECTIONS: LegalSection[] = [
     title: "If you're under 18",
     body: (
       <p>
-        Our forms are meant for people aged 18 or over, and we don&apos;t knowingly collect personal data from children. If you
-        think someone under 18 has sent us personal data, tell us and we&apos;ll delete it.
+        This website is meant for adults, and we don&apos;t knowingly collect personal data from children. If you&apos;re under
+        18, please don&apos;t email us personal details. If you think someone under 18 has sent us personal data, tell us and
+        we&apos;ll delete it.
       </p>
     ),
   },
@@ -100,10 +108,8 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <ul>
-          <li><b>To write to you</b> about early access to Zestful. Basis: your consent, given when you leave your email.</li>
-          <li><b>To confirm you&apos;re on the list</b> with one short email. Basis: your consent.</li>
-          <li><b>To read and reply to your messages.</b> Basis: your consent, and data you gave us for that purpose.</li>
-          <li><b>To keep the website safe</b> from spam and abuse. Basis: the reasonable security practices the law requires.</li>
+          <li><b>To read and reply to your emails.</b> Basis: your consent, and data you gave us for that purpose.</li>
+          <li><b>To keep the website safe and running,</b> through our host&apos;s request logs. Basis: the reasonable security practices the law requires.</li>
           <li><b>To meet legal duties</b> and answer lawful requests.</li>
         </ul>
         <p>We make no automated decisions about you that have legal or similarly significant effects.</p>
@@ -117,15 +123,14 @@ const SECTIONS: LegalSection[] = [
       <>
         <p>Our team, and only where needed:</p>
         <ul>
-          <li><b>Vercel Inc.,</b> which hosts the website and carries form submissions.</li>
-          <li><b>Neon (Databricks, Inc.),</b> which hosts the database holding what you submit, your hashed IP and your browser information.</li>
-          <li><b>Resend (Plus Five Five, Inc.),</b> which sends our emails, so it handles your email, your name and message if you wrote to us, and our internal notifications.</li>
+          <li><b>Vercel Inc.,</b> which hosts the website and keeps its request logs.</li>
+          <li><b>Our email provider,</b> which stores the emails you send us and our replies.</li>
           <li><b>Professional advisers,</b> such as lawyers and auditors, under a duty of confidentiality.</li>
           <li><b>Authorities and courts,</b> where the law requires it or to protect our legal rights.</li>
           <li><b>A buyer or successor,</b> if we are part of a merger or sale, with this policy still protecting your data.</li>
         </ul>
         <p>
-          The first three may store or process data outside India. The DPDP law allows that except to countries the Central
+          The first two may store or process data outside India. The DPDP law allows that except to countries the Central
           Government restricts, and we won&apos;t transfer data to a restricted country.
         </p>
       </>
@@ -137,9 +142,7 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <ul>
-          <li><b>Early access list:</b> until you ask us to remove you or we close the list, whichever comes first. We review the list at least every 24 months and delete what we no longer need.</li>
-          <li><b>Messages and emails:</b> up to 24 months after our last exchange.</li>
-          <li><b>Hashed IPs and browser information:</b> deleted along with the entry they belong to.</li>
+          <li><b>Emails:</b> up to 24 months after our last exchange.</li>
           <li><b>Hosting logs:</b> a short period, typically no more than 30 days.</li>
         </ul>
         <p>If you withdraw consent or ask us to erase your data, we will, unless the law requires us to keep it.</p>
@@ -153,10 +156,8 @@ const SECTIONS: LegalSection[] = [
       <>
         <p>We keep reasonable security practices, as section 43A of the IT Act and the SPDI Rules require:</p>
         <ul>
-          <li>data is encrypted in transit, and at rest with our database provider;</li>
-          <li>only the people who need access have it;</li>
-          <li>IP addresses are stored only as salted one-way hashes; and</li>
-          <li>our forms limit how much can be sent from one network.</li>
+          <li>the website is served only over encrypted connections; and</li>
+          <li>only the people who need access to our email have it.</li>
         </ul>
         <p>
           Nothing online is perfectly secure. If a personal data breach happens, we will tell the people affected and the Data
@@ -216,7 +217,7 @@ const SECTIONS: LegalSection[] = [
     title: "When this policy changes",
     body: (
       <p>
-        We&apos;ll post the new version here with a new date. If a change is material, we&apos;ll email everyone on the list before
+        We&apos;ll post the new version here with a new date. If a change is material, we&apos;ll say so clearly on this page before
         it takes effect.
       </p>
     ),
@@ -228,7 +229,7 @@ export default function PrivacyPage() {
     <LegalDoc
       title={<>Privacy <em>policy</em></>}
       note="What we ask, and why. No small print."
-      intro="A private space has to start with being straight about privacy. Here is exactly what this website collects and what we do with it."
+      intro="A private space has to start with being straight about privacy. This website collects very little, and here is exactly what."
       summary={SUMMARY}
       sections={SECTIONS}
     />

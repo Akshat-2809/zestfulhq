@@ -53,15 +53,11 @@ em { font-style: italic; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 24px; border-radius: 999px; font: 600 16px var(--sans); text-decoration: none; border: 0; cursor: pointer; transition: transform .4s var(--ease), background .3s; }
 .btn-ink { background: var(--ink); color: #F7FAF8; }
 .btn-ink:hover { color: #F7FAF8; transform: translateY(-2px); }
-.btn:disabled { cursor: progress; transform: none; opacity: .85; }
 
 /* Our fonts have no → glyph. Without this it would come from the Arial-based fallback, which is much wider. */
 .arr { font-family: system-ui, -apple-system, sans-serif; }
 
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.spin { width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, .35); border-top-color: #FFFFFF; animation: spin .7s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
 
 /* scroll-driven reveal */
 @supports (animation-timeline: view()) {
