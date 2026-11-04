@@ -29,7 +29,7 @@ export function Footer() {
         </div>
       </div>
       <div className={`wrap ${s.legal}`}>
-        <span>© 2026 Zestful · Founded 2024 · Gurugram, India</span>
+        <span>© 2026 Zestful. All rights reserved. · Founded 2024 · Gurugram, India</span>
         <span>
           <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link> · <Link href="/contact">Contact</Link> · <Link href="/#write">Back to the page ↑</Link>
         </span>
